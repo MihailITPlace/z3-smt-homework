@@ -13,8 +13,8 @@ prove(trick == simple_min)
 # max(x,y)
 c = If(x < y, BitVecVal(-1, 32), BitVecVal(0, 32))
 trick = x ^ ((x ^ y) & c)
-simple_min = If(x > y, x, y)
-prove(trick == simple_min)
+simple_max = If(x > y, x, y)
+prove(trick == simple_max)
 
 # opposite signs -> sign(x) != sign(y)
 trick = (x ^ y) < 0
